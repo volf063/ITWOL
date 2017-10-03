@@ -11,11 +11,18 @@ namespace MyGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        /// <summary>
+        /// testGrid - текстура тестовой сетки с шагом линия в каждые сто пикселей
+        /// </summary>
+        Texture2D testGrid;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
+            graphics.PreferredBackBufferWidth = 800; //ширина экрана 
+            graphics.PreferredBackBufferHeight = 600; //высота экрана   
         }
 
         /// <summary>
@@ -39,6 +46,8 @@ namespace MyGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            testGrid = Content.Load<Texture2D>("testGrid1");//загрузка текстуры сетки
 
             // TODO: use this.Content to load your game content here
         }
@@ -73,9 +82,14 @@ namespace MyGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkSlateGray);
 
             // TODO: Add your drawing code here
+
+            // отрисовка сетки
+            spriteBatch.Begin();
+            spriteBatch.Draw(testGrid, Vector2.Zero, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
