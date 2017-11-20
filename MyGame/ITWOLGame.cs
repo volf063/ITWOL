@@ -7,7 +7,7 @@ namespace MyGame
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class ITWOLGame : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -16,7 +16,7 @@ namespace MyGame
         /// </summary>
         Texture2D testGrid;
 
-        public Game1()
+        public ITWOLGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
