@@ -21,6 +21,12 @@ namespace ITWOL
         private SpriteFont font2;
         private SpriteFont font3;
 
+        KeyboardState keys;
+        //MouseState mouse;
+
+        Texture2D cursorDefault; //Спрайт с изображением-курсором
+        Rectangle cursorPosition; //Текущая позиция курсора
+
 
         public ITWOLGame()
         {
@@ -55,6 +61,8 @@ namespace ITWOL
 
             testGrid = Content.Load<Texture2D>("testGrid1");//загрузка текстуры сетки
 
+            cursorDefault = Content.Load<Texture2D>(@"Cursors/cursorDefault");
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -74,10 +82,17 @@ namespace ITWOL
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
 
-            // TODO: Add your update logic here
+            //exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+            keys = Keyboard.GetState();//Инициализация объекта keys. 
+
+            if (keys.IsKeyDown(Keys.Escape))//Проверяем, нажата ли клавиша   
+                this.Exit();//Если клавиша нажата, то происходит выход 
+                            // TODO: Add your update logic here
+
+            cursorPosition = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, cursorDefault.Width, cursorDefault.Height);
 
             base.Update(gameTime);
         }
@@ -99,12 +114,15 @@ namespace ITWOL
             // отрисовка сетки и шрифтов
             spriteBatch.Begin();
             spriteBatch.Draw(testGrid, Vector2.Zero, Color.White);
-           
+            
             spriteBatch.DrawString(font, "pixSmall Some Text Рандомный текст", new Vector2(100, 100), Color.White);
             spriteBatch.DrawString(font2, "pix10  Some Text Рандомный текст", new Vector2(100, 200), Color.White);
             spriteBatch.DrawString(font3, "pix12  Some Text Рандомный текст", new Vector2(100, 300), Color.White);
-            spriteBatch.End();
 
+            spriteBatch.Draw(cursorDefault, cursorPosition, Color.White);
+
+            spriteBatch.End();
+            
             base.Draw(gameTime);
         }
     }
