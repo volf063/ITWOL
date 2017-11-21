@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace ITWOL
 {
@@ -15,6 +16,11 @@ namespace ITWOL
         /// testGrid - текстура тестовой сетки с шагом линия в каждые сто пикселей
         /// </summary>
         Texture2D testGrid;
+
+        private SpriteFont font;
+        private SpriteFont font2;
+        private SpriteFont font3;
+
 
         public ITWOLGame()
         {
@@ -86,9 +92,17 @@ namespace ITWOL
 
             // TODO: Add your drawing code here
 
-            // отрисовка сетки
+
+            font = Content.Load<SpriteFont>(@"Fonts\pixSmall");
+            font2 = Content.Load<SpriteFont>(@"Fonts\pix10");
+            font3 = Content.Load<SpriteFont>(@"Fonts\pix12");
+            // отрисовка сетки и шрифтов
             spriteBatch.Begin();
             spriteBatch.Draw(testGrid, Vector2.Zero, Color.White);
+           
+            spriteBatch.DrawString(font, "pixSmall Some Text Рандомный текст", new Vector2(100, 100), Color.White);
+            spriteBatch.DrawString(font2, "pix10  Some Text Рандомный текст", new Vector2(100, 200), Color.White);
+            spriteBatch.DrawString(font3, "pix12  Some Text Рандомный текст", new Vector2(100, 300), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
