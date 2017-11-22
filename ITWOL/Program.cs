@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace ITWOL
 {
@@ -14,8 +16,10 @@ namespace ITWOL
         [STAThread]
         static void Main()
         {
+            
             using (var game = new ITWOLGame())
                 game.Run();
+
         }
     }
 #endif
