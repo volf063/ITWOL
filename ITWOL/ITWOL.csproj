@@ -61,6 +61,8 @@
     <StartupObject>ITWOL.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\Animation.cs" />
+    <Compile Include="Controller\AnimationOfSequences.cs" />
     <Compile Include="Controller\Managers\GameScreen.cs" />
     <Compile Include="ITWOLGame.cs" />
     <Compile Include="Program.cs" />

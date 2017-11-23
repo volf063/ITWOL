@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ITWOL.Controller;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,17 +14,11 @@ namespace ITWOL
     {
 
         /*/
-        /// <summary>
-        /// testGrid - текстура тестовой сетки с шагом линия в каждые сто пикселей
-        /// </summary>
-        Texture2D testGrid;
 
         private SpriteFont fontSmall;
         private SpriteFont fontMedium;
         private SpriteFont fontNormal;
-
-        KeyboardState keys;
-        //MouseState mouse;
+        
 
         /// <summary>
         /// курсор
@@ -67,6 +62,9 @@ namespace ITWOL
         {
             
             graphics = new GraphicsDeviceManager(this);
+            graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            
+
             Content.RootDirectory = "GameContent";
 
             //позиционирование окна по центру экрана вне зависимости от размеров
@@ -78,6 +76,7 @@ namespace ITWOL
             graphics.PreferredBackBufferWidth = BackBufferWidth;
             graphics.PreferredBackBufferHeight = BackBufferHeight;
 
+            graphics.ApplyChanges();
             //IsMouseVisible = true; 
 
         }
@@ -91,6 +90,7 @@ namespace ITWOL
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+           
 
             base.Initialize();
         }
@@ -108,7 +108,6 @@ namespace ITWOL
             if (content == null)
                 content = new ContentManager(this.Services, "Content");
 
-
             /*/
             //загрузка текстуры сетки
             testGrid = content.Load<Texture2D>("testGrid1");
@@ -122,13 +121,13 @@ namespace ITWOL
             cursorDefault = content.Load<Texture2D>(@"Cursors\cursorDefault");
             /*/
 
-
             // TODO: use this.Content to load your game content here
+
 
             //загрузка лого разработчика
             developerLogo = content.Load<Texture2D>(@"SplashScreens\developerLogo");
             gameLogo = content.Load<Texture2D>(@"SplashScreens\gameLogo");
-
+            
             splashScreen = developerLogo;
 
 
@@ -142,6 +141,8 @@ namespace ITWOL
         {
             // TODO: Unload any non ContentManager content here
         }
+
+
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -158,14 +159,14 @@ namespace ITWOL
 
              if (keys.IsKeyDown(Keys.Escape))//Проверяем, нажата ли клавиша   
                  this.Exit();//Если клавиша нажата, то происходит выход 
-                             // TODO: Add your update logic here
+
+            // TODO: Add your update logic here
 
             /*/
              cursorPosition = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, cursorDefault.Width, cursorDefault.Height);
             /*/
 
-
-            elapsedTime += gameTime.ElapsedGameTime;
+            //elapsedTime += gameTime.ElapsedGameTime;
 
 
 
@@ -186,24 +187,9 @@ namespace ITWOL
             
             spriteBatch.Begin();
 
-            /*/ тестовая отрисовка сетки и шрифтов
-            spriteBatch.Draw(testGrid, Vector2.Zero, Color.White);
-            
-            spriteBatch.DrawString(fontSmall, "pixSmall Some Text Рандомный текст", new Vector2(100, 100), Color.White);
-            spriteBatch.DrawString(fontMedium, "pix10  Some Text Рандомный текст", new Vector2(100, 200), Color.White);
-            spriteBatch.DrawString(fontNormal, "pix12  Some Text Рандомный текст", new Vector2(100, 300), Color.White);
-            //отрисовка курсора поверх всего
-            spriteBatch.Draw(cursorDefault, cursorPosition, Color.White);
-            /*/
-
-            //отрисовка заставки
-
-            if (elapsedTime > TimeSpan.FromSeconds(3))
-                splashScreen = gameLogo;
-
             spriteBatch.Draw(splashScreen, Vector2.Zero, Color.White);
 
-
+            
             spriteBatch.End(); 
 
             base.Draw(gameTime);
