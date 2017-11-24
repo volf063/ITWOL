@@ -1,4 +1,5 @@
 ﻿using ITWOL.Controller;
+using ITWOL.Model.GameClasses;
 using ITWOL.Model.GameClasses.Entity;
 using ITWOL.View.Screens;
 using Microsoft.Xna.Framework;
@@ -68,6 +69,9 @@ namespace ITWOL
         //
         Player player = new Player();
         //
+
+        Level level1 = new Level();
+        Level level2 = new Level();
 
         Texture2D developerLogo;
         Texture2D gameLogo;
@@ -166,6 +170,10 @@ namespace ITWOL
             splashScreen = developerLogo;
 
 
+            // грузим уровни
+            level1.LoadContent(content, @"Textures\Levels\District1\dist1_sprite1_hotelHomeFloor");
+            level2.LoadContent(content, @"Textures\Levels\District1\dist1_sprite2_hotelOutsideStreet");
+
             //Загружаем элементы игры и создаем игровые экраны
             //spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
@@ -187,14 +195,14 @@ namespace ITWOL
             creditsScreen = new CreditsScreen(this, creditsBG, fonts,
                 new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height),
                 new Rectangle((this.Window.ClientBounds.Width - 200) / 2,
-                (this.Window.ClientBounds.Height - 100) / 2,
+                (this.Window.ClientBounds.Height - 200) / 2,
                 100, 100));
             Components.Add(creditsScreen);
 
             //загрузка контента игрового экрана
             player.LoadContent(content, @"Textures\Skins\Player\playerStatic");
             gameplayInterfaceBG = content.Load<Texture2D>(@"Textures\Interface\GameplayInterface\interfaceBG");
-            newGameScreen = new GameplayScreen(this, player, ref gameplayInterfaceBG, 
+            newGameScreen = new GameplayScreen(this, level2, player, ref gameplayInterfaceBG, 
                 new Rectangle(0, 0, 800, 600), Vector2.Zero);
             Components.Add(newGameScreen);
 
@@ -244,17 +252,12 @@ namespace ITWOL
         {
             //очистка главного экрана и заливка его базовым цветом
             GraphicsDevice.Clear(Color.DarkSlateGray);
-
-            // TODO: Add your drawing code here
-
             
             spriteBatch.Begin();
-            
-            base.Draw(gameTime);
-            
-            spriteBatch.End(); 
 
-            
+            base.Draw(gameTime);
+
+            spriteBatch.End(); 
         }
     }
 }

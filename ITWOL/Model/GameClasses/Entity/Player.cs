@@ -20,20 +20,14 @@ namespace ITWOL.Model.GameClasses.Entity
         /// </summary>
         private Texture2D PlayerStaticTexture;
 
-        /*/
-        /// <summary>
-        /// Прямоугольная область, орагничивающая героя.
-        /// </summary>
-        public Rectangle playerRectangle { get 
-            { return new Rectangle(Convert.ToInt32(playerPosition.X), Convert.ToInt32(playerPosition.Y), 
-                playerStaticTexture.Width, playerStaticTexture.Height); } }
-        /*/
-
         /// <summary>
         /// Начальная позиция героя.
         /// </summary>
         public Vector2 playerPosition { get; set; }
         
+        /// <summary>
+        /// Доступ к текстуре
+        /// </summary>
         public Texture2D staticTexture
         {
             get{ return PlayerStaticTexture; }
@@ -41,11 +35,16 @@ namespace ITWOL.Model.GameClasses.Entity
         }
 
         /// <summary>
+        /// Повернуто ли изображение. По умолчанию false.
+        /// </summary>
+        public bool isRotated;
+
+        /// <summary>
         /// Конструктор для создания нового героя.
         /// </summary>
         public Player()
         {
-            
+            isRotated = false;
         }
 
         /// <summary>
@@ -58,7 +57,16 @@ namespace ITWOL.Model.GameClasses.Entity
 
         public void Draw(SpriteBatch spriteBatch, Vector2 startPosition)
         {
-            spriteBatch.Draw(PlayerStaticTexture, playerPosition, Color.White);
+            if (isRotated == false)
+            {
+                spriteBatch.Draw(PlayerStaticTexture, playerPosition, Color.White);
+            }
+            else
+            {
+                if (isRotated == true)
+                    spriteBatch.Draw(PlayerStaticTexture, playerPosition, null,
+                    Color.White, 0, Vector2.Zero, 1, SpriteEffects.FlipHorizontally, 0);
+            }
         }
 
     }

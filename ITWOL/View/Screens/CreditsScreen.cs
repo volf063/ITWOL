@@ -30,7 +30,11 @@ namespace ITWOL.View.Screens
             backRectangle = _backRec;
             helpRectangle = _helpRec;
             position = new Vector2(helpRectangle.X, helpRectangle.Y);
-            info = ("Это техно демо игры \n \"In the web of li(f)e\"");
+            info = ("Это техно демо игры" +"\n" +
+                    " \"In the web of li(f)e.\""+ "\n\n" +
+                    "Используйте стрелки" + "\n" +
+                    "влево и вправо " + "\n" + 
+                    "для перемещения.");
         }
         public override void Draw(GameTime gameTime)
         {
