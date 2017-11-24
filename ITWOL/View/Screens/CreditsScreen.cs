@@ -17,20 +17,26 @@ namespace ITWOL.View.Screens
         Rectangle backRectangle;
         Texture2D helpTexture;
         Rectangle helpRectangle;
+        SpriteFont[] fonts;
+        String info;
+        Vector2 position;
 
-        public CreditsScreen(Game game, Texture2D _back, Texture2D _help, Rectangle _backRec, Rectangle _helpRec)
+        public CreditsScreen(Game game, Texture2D _back, SpriteFont[] _fonts, /*Texture2D _help,*/ Rectangle _backRec, Rectangle _helpRec)
             : base(game)
         {
             backTexture = _back;
-            helpTexture = _help;
+            //helpTexture = _help;
+            fonts = _fonts;
             backRectangle = _backRec;
             helpRectangle = _helpRec;
+            position = new Vector2(helpRectangle.X, helpRectangle.Y);
+            info = ("Это техно демо игры \n \"In the web of li(f)e\"");
         }
         public override void Draw(GameTime gameTime)
         {
             //Выводим изображения
             sprBatch.Draw(backTexture, backRectangle, Color.White);
-            sprBatch.Draw(helpTexture, helpRectangle, Color.White);
+            sprBatch.DrawString(fonts[2], info, position, Color.MintCream);
             base.Draw(gameTime);
         }
     }

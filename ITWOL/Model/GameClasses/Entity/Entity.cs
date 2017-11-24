@@ -34,6 +34,6 @@ namespace ITWOL.Model.GameClasses.Entity
         internal AnimationPlayer sprite;
         /*/
 
-        internal ScreenManager screenManager;
+        //internal ScreenManager screenManager;
     }
 }

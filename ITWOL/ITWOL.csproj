@@ -61,6 +61,7 @@
     <StartupObject>ITWOL.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\InputHandler.cs" />
     <Compile Include="Controller\Menu.cs" />
     <Compile Include="Controller\Screen.cs" />
     <Compile Include="ITWOLGame.cs" />
