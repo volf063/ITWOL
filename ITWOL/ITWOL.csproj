@@ -61,13 +61,17 @@
     <StartupObject>ITWOL.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controller\Animation.cs" />
-    <Compile Include="Controller\AnimationOfSequences.cs" />
-    <Compile Include="Controller\Managers\GameScreen.cs" />
+    <Compile Include="Controller\Menu.cs" />
+    <Compile Include="Controller\Screen.cs" />
     <Compile Include="ITWOLGame.cs" />
+    <Compile Include="Model\GameClasses\Entity\Entity.cs" />
+    <Compile Include="Model\GameClasses\Entity\Player.cs" />
+    <Compile Include="Model\GameClasses\Level.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScreenManager.cs" />
+    <Compile Include="View\Screens\CreditsScreen.cs" />
+    <Compile Include="View\Screens\GameplayScreen.cs" />
+    <Compile Include="View\Screens\MenuScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -96,8 +100,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="View\Screens\" />
     <Folder Include="View\Sprites\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

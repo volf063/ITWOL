@@ -262,7 +262,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Levels/District1/dist1_sprite2_hotelOutsideStreet.png
 
-#begin Textures/Skins/Player/PlayerStatic.png
+#begin Textures/Skins/Player/playerStatic.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -272,5 +272,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Skins/Player/PlayerStatic.png
+/build:Textures/Skins/Player/playerStatic.png
 
