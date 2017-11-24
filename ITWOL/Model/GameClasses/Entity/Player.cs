@@ -12,25 +12,40 @@ namespace ITWOL.Model.GameClasses.Entity
     /// <summary>
     /// Наш игровой персонаж.
     /// </summary>
-    class Player : Entity
+    internal class Player : Entity
     {
 
         /// <summary>
         /// Неподвижная текстура героя.
         /// </summary>
-        private Texture2D playerStaticTexture;
+        private Texture2D PlayerStaticTexture;
+
+        /*/
+        /// <summary>
+        /// Прямоугольная область, орагничивающая героя.
+        /// </summary>
+        public Rectangle playerRectangle { get 
+            { return new Rectangle(Convert.ToInt32(playerPosition.X), Convert.ToInt32(playerPosition.Y), 
+                playerStaticTexture.Width, playerStaticTexture.Height); } }
+        /*/
 
         /// <summary>
         /// Начальная позиция героя.
         /// </summary>
-        public Vector2 StartPosition { get; set; }
+        public Vector2 playerPosition { get; set; }
         
+        public Texture2D staticTexture
+        {
+            get{ return PlayerStaticTexture; }
+            set{ PlayerStaticTexture = staticTexture; }
+        }
 
         /// <summary>
         /// Конструктор для создания нового героя.
         /// </summary>
         public Player()
         {
+            
         }
 
         /// <summary>
@@ -38,12 +53,12 @@ namespace ITWOL.Model.GameClasses.Entity
         /// </summary>
         public void LoadContent(ContentManager Content, String texture)
         {
-            playerStaticTexture = Content.Load<Texture2D>(texture);
+            PlayerStaticTexture = Content.Load<Texture2D>(texture);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 startPosition)
         {
-            spriteBatch.Draw(playerStaticTexture, startPosition, Color.White);
+            spriteBatch.Draw(PlayerStaticTexture, playerPosition, Color.White);
         }
 
     }

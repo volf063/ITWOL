@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ITWOL.View.Screens
 {
     //Экран справки
-    public class CreditsScreen : Screen
+    internal class CreditsScreen : Screen
     {
         //Текстуры для фона и справочной надписи
         Texture2D backTexture;

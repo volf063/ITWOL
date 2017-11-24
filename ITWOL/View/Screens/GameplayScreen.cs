@@ -1,4 +1,5 @@
 ﻿using ITWOL.Controller;
+using ITWOL.Model.GameClasses.Entity;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,24 +13,35 @@ namespace ITWOL.View.Screens
 {
     //Игровой экран
 
-    public class GameplayScreen : Screen
+    internal class GameplayScreen : Screen
     {
-        private Texture2D sprTexture;
+        private Texture2D interfaceBG;
         private Rectangle sprRectangle;
         private Vector2 sprPosition;
-        private Rectangle scrBounds;
+        private Rectangle sprBounds;
+        private Player player;
+        private Vector2 playerPosition;
+        private Rectangle playerBounds;
 
 
-        public GameplayScreen(Game game, ref Texture2D newTexture,
+        public GameplayScreen(Game game, Player newPlayer, ref Texture2D newTexture,
             Rectangle newRectangle, Vector2 newPosition)
             : base(game)
         {
-            sprTexture = newTexture;
+            interfaceBG = newTexture;
             sprRectangle = newRectangle;
             sprPosition = newPosition;
-            scrBounds = new Rectangle(0, 0,
+            sprBounds = new Rectangle(0, 0,
                 game.Window.ClientBounds.Width,
                 game.Window.ClientBounds.Height);
+            player = newPlayer;
+            //playerPosition = player.playerPosition;
+            // playerPosition += new Vector2(0, 490 - player.staticTexture.Width);
+            playerPosition = new Vector2(0, 490 - player.staticTexture.Width);
+            player.playerPosition = playerPosition;
+            playerBounds = new Rectangle(0, 0,
+                player.staticTexture.Width,
+                player.staticTexture.Height);
         }
 
         public override void Initialize()
@@ -43,6 +55,7 @@ namespace ITWOL.View.Screens
         {            
 
             KeyboardState kbState = Keyboard.GetState();
+            /*/
             if (kbState.IsKeyDown(Keys.Up))
             {
                 sprPosition.Y -= 5;
@@ -51,23 +64,25 @@ namespace ITWOL.View.Screens
             {
                 sprPosition.Y += 5;
             }
+            /*/
             if (kbState.IsKeyDown(Keys.Left))
             {
-                sprPosition.X -= 5;
+                playerPosition.X -= 5;
             }
             if (kbState.IsKeyDown(Keys.Right))
             {
-                sprPosition.X += 5;
+                playerPosition.X += 5;
             }
 
-            if (sprPosition.X < scrBounds.Left)
+            if (playerPosition.X < sprBounds.Left)
             {
-                sprPosition.X = scrBounds.Left;
+                playerPosition.X = playerBounds.Left;
             }
-            if (sprPosition.X > scrBounds.Width - sprRectangle.Width)
+            if (playerPosition.X > sprBounds.Width - playerBounds.Width)
             {
-                sprPosition.X = scrBounds.Width - sprRectangle.Width;
+                playerPosition.X = sprBounds.Width - playerBounds.Width;
             }
+            /*/
             if (sprPosition.Y < scrBounds.Top)
             {
                 sprPosition.Y = scrBounds.Top;
@@ -76,13 +91,16 @@ namespace ITWOL.View.Screens
             {
                 sprPosition.Y = scrBounds.Height - sprRectangle.Height;
             }
+            /*/
+            player.playerPosition = playerPosition;
 
             base.Update(gameTime);
 
         }
         public override void Draw(GameTime gameTime)
         {
-            sprBatch.Draw(sprTexture, sprPosition, sprRectangle, Color.White);
+            sprBatch.Draw(interfaceBG, sprPosition, sprRectangle, Color.White);
+            player.Draw(sprBatch, playerPosition);
             base.Draw(gameTime);
         }
     }

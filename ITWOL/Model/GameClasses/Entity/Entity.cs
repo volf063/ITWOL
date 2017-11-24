@@ -15,7 +15,7 @@ namespace ITWOL.Model.GameClasses.Entity
     /// категорию персонажей.
     /// Герой, различные нпс.
     /// </remarks>
-    class Entity
+    internal class Entity
     {
         /// <summary>
         /// Неподвижная текстура персонажа.
@@ -34,6 +34,5 @@ namespace ITWOL.Model.GameClasses.Entity
         internal AnimationPlayer sprite;
         /*/
 
-        //internal ScreenManager screenManager;
     }
 }

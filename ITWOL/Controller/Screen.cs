@@ -11,8 +11,8 @@ namespace ITWOL.Controller
     /// <summary>
     /// Базовый класс, на основе которого создаются игровые экраны.
     /// </summary>
-   
-    public class Screen : DrawableGameComponent
+
+    internal class Screen : DrawableGameComponent
     {
         //Для объекта SpriteBatch, который используется
         //для вывода изображений в классах-наследниках

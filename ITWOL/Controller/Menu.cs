@@ -11,7 +11,7 @@ namespace ITWOL.Controller
     /// <summary>
     /// Данные о пунктах меню
     /// </summary>
-    class Menu
+    internal class Menu
     {
         public Texture2D imageTexture;
         public Rectangle imageRectangle;

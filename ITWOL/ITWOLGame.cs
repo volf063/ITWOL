@@ -12,7 +12,7 @@ namespace ITWOL
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class ITWOLGame : Game
+    internal class ITWOLGame : Game
     {
         #region Initialization
 
@@ -62,12 +62,12 @@ namespace ITWOL
         public int menuChangeInterval;
         //Игровой экран
         public GameplayScreen newGameScreen;
-        Texture2D player;
+        Texture2D gameplayInterfaceBG;
 
 
-        /*/
+        //
         Player player = new Player();
-        /*/
+        //
 
         Texture2D developerLogo;
         Texture2D gameLogo;
@@ -165,8 +165,6 @@ namespace ITWOL
             
             splashScreen = developerLogo;
 
-            //player.LoadContent(content, @"Textures\Skins\Player\playerStatic");
-
 
             //Загружаем элементы игры и создаем игровые экраны
             //spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -194,9 +192,10 @@ namespace ITWOL
             Components.Add(creditsScreen);
 
             //загрузка контента игрового экрана
-            player = content.Load<Texture2D>(@"Textures\Skins\Player\playerStatic");
-            newGameScreen = new GameplayScreen(this, ref player, new Rectangle(0, 0, 128, 128),
-                new Vector2(0, 390));
+            player.LoadContent(content, @"Textures\Skins\Player\playerStatic");
+            gameplayInterfaceBG = content.Load<Texture2D>(@"Textures\Interface\GameplayInterface\interfaceBG");
+            newGameScreen = new GameplayScreen(this, player, ref gameplayInterfaceBG, 
+                new Rectangle(0, 0, 800, 600), Vector2.Zero);
             Components.Add(newGameScreen);
 
             //Отображаем меню, остальные элементы скрыты

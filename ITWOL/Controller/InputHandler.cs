@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ITWOL.Controller
 {
     //Обработка нажатий на клавиши
-    public class InputHandler {
+    internal class InputHandler {
 
         public void KeyboardHandle(ITWOLGame game)
         {

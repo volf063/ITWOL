@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ITWOL.View.Screens
 {
     //Экран меню
-    public class MenuScreen : Screen
+    internal class MenuScreen : Screen
     {
         //Элементы меню будем хранить в массиве типа Menu
         //тип данных Menu хранит информацию об элементах меню

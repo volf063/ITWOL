@@ -12,7 +12,7 @@ namespace ITWOL.Model.GameClasses
     /// Уровень содержит спрайт уровня, предметы на нем и персонажа.
     /// 
     /// </summary>
-    class Level : IDisposable
+    internal class Level : IDisposable
     {
         /*/
         string levelTitle;
