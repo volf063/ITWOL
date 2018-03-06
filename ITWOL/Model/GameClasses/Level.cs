@@ -56,7 +56,7 @@ namespace ITWOL.Model.GameClasses
         public void Draw(SpriteBatch spriteBatch, Vector2 startPosition)
         {
            
-        spriteBatch.Draw(LevelTexture, playerPosition, Color.White);
+        spriteBatch.Draw(LevelTexture, startPosition, Color.White);
             
         }
     }

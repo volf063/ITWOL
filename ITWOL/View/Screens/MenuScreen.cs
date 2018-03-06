@@ -42,7 +42,7 @@ namespace ITWOL.View.Screens
             menu = new Menu[3];
             //Инициализируем элементы массива
             //Элемент с номером 0 активен
-            menu[0] = new Menu(game, menuTxtStartGame, menuTxtStartGameR, Color.Goldenrod);
+            menu[0] = new Menu(game, menuTxtStartGame, menuTxtStartGameR, Color.Khaki);
             menu[1] = new Menu(game, menuTxtHelp, menuTxtHelpR, Color.White);
             menu[2] = new Menu(game, menuTxtExit, menuTxtExitR, Color.White);
 
@@ -55,7 +55,7 @@ namespace ITWOL.View.Screens
             //i=3 - третий пункт
             if (i == 1)
             {
-                menu[0].color = Color.Goldenrod;
+                menu[0].color = Color.Khaki;
                 menu[1].color = Color.White;
                 menu[2].color = Color.White;
 
@@ -63,14 +63,14 @@ namespace ITWOL.View.Screens
             if (i == 2)
             {
                 menu[0].color = Color.White;
-                menu[1].color = Color.Goldenrod;
+                menu[1].color = Color.Khaki;
                 menu[2].color = Color.White;
             }
             if (i == 3)
             {
                 menu[0].color = Color.White;
                 menu[1].color = Color.White;
-                menu[2].color = Color.Goldenrod;
+                menu[2].color = Color.Khaki;
 
             }
         }

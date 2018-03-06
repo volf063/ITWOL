@@ -88,13 +88,13 @@ namespace ITWOL.View.Screens
             /*/
             if (kbState.IsKeyDown(Keys.Left))
             {
-                playerPosition.X -= 3;
                 player.isRotated = true;
+                playerPosition.X -= 2;
             }
             if (kbState.IsKeyDown(Keys.Right))
             {
-                playerPosition.X += 3;
                 player.isRotated = false;
+                playerPosition.X += 2;
             }
 
             if (playerPosition.X < sprBounds.Left)

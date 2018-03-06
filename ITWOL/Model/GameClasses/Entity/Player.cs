@@ -24,14 +24,14 @@ namespace ITWOL.Model.GameClasses.Entity
         /// Начальная позиция героя.
         /// </summary>
         public Vector2 playerPosition { get; set; }
-        
+
         /// <summary>
         /// Доступ к текстуре
         /// </summary>
-        public Texture2D staticTexture
+        public new Texture2D staticTexture
         {
-            get{ return PlayerStaticTexture; }
-            set{ PlayerStaticTexture = staticTexture; }
+            get { return PlayerStaticTexture; }
+            set { PlayerStaticTexture = staticTexture; }
         }
 
         /// <summary>
