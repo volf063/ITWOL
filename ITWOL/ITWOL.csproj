@@ -61,6 +61,7 @@
     <StartupObject>ITWOL.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\Cursor.cs" />
     <Compile Include="Controller\InputHandler.cs" />
     <Compile Include="Controller\Menu.cs" />
     <Compile Include="Controller\Screen.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Model\GameClasses\Level.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Screens\AnimatedSplashScreen.cs" />
     <Compile Include="View\Screens\CreditsScreen.cs" />
     <Compile Include="View\Screens\GameplayScreen.cs" />
     <Compile Include="View\Screens\MenuScreen.cs" />

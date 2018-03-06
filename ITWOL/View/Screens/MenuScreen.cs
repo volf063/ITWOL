@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace ITWOL.View.Screens
 {
-    //Экран меню
+    /// <summary>
+    /// Экран меню
+    /// </summary>
     internal class MenuScreen : Screen
     {
         //Элементы меню будем хранить в массиве типа Menu

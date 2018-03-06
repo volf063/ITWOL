@@ -12,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace ITWOL.View.Screens
 {
-    //Игровой экран
-
+    /// <summary>
+    /// Игровой экран
+    /// </summary>
     internal class GameplayScreen : Screen
     {
         private ITWOLGame Game;

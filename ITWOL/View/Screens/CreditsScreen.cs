@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace ITWOL.View.Screens
 {
-    //Экран справки
+    /// <summary>
+    /// Экран справки
+    /// </summary>
     internal class CreditsScreen : Screen
     {
         //Текстуры для фона и справочной надписи
@@ -18,7 +20,7 @@ namespace ITWOL.View.Screens
         Texture2D helpTexture;
         Rectangle helpRectangle;
         SpriteFont[] fonts;
-        String info;
+        string info;
         Vector2 position;
 
         public CreditsScreen(Game game, Texture2D _back, SpriteFont[] _fonts, /*Texture2D _help,*/ Rectangle _backRec, Rectangle _helpRec)

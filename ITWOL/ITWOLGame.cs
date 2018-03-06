@@ -24,14 +24,17 @@ namespace ITWOL
         public SpriteFont fontNormal;
 
         public SpriteFont[] fonts = new SpriteFont[3];
-        
+
 
         /// <summary>
         /// курсор
         /// </summary>
+        public Cursor GameCursor;
         Texture2D cursorDefault; //Спрайт с изображением-курсором
-        Rectangle cursorPosition; //Текущая позиция курсора 
+        //public Rectangle cursorPosition; //Текущая позиция курсора 
         //
+        MouseState lastMouseState;
+        Vector2 mousePosition = Vector2.Zero;
 
         GraphicsDeviceManager graphics;
         //ScreenManager screenManager;
@@ -109,7 +112,11 @@ namespace ITWOL
             graphics.PreferredBackBufferHeight = BackBufferHeight;
 
             graphics.ApplyChanges();
-            //IsMouseVisible = true; 
+            //IsMouseVisible = true;
+            //Mouse.SetCursor(MouseCursor.FromTexture2D(cursorDefault, 0, 0));
+            //MouseState mouseState = Mouse.GetState();
+            //MouseCursor.FromTexture2D(cursorDefault, mouseState.X, mouseState.Y);
+
 
         }
 
@@ -158,7 +165,17 @@ namespace ITWOL
 
             //загрузка текстуры стандартного курсора
             cursorDefault = content.Load<Texture2D>(@"Cursors\cursorDefault");
+
+            //MouseState mouseState = Mouse.GetState();
+            //MouseCursor.FromTexture2D(cursorDefault, mouseState.X, mouseState.Y);
             //
+            //cursorPosition = new Rectangle();
+            //инициализация игрового курсора
+            /*GameCursor = new Cursor(this, cursorDefault, new Rectangle(0, 0,
+                cursorDefault.Width,
+                cursorDefault.Height));
+            Components.Add(GameCursor);*/
+
 
             // TODO: use this.content to load your game content here
 
@@ -240,6 +257,15 @@ namespace ITWOL
 
             //Обработка нажатий на клавиши
             inputState.KeyboardHandle(this);
+
+            //Обработка статуса мыши
+            inputState.MouseHandle(this);
+
+            MouseState currentMouseState = Mouse.GetState();
+            if (currentMouseState.X != lastMouseState.X ||
+                currentMouseState.Y != lastMouseState.Y)
+                mousePosition = new Vector2(currentMouseState.X, currentMouseState.Y);
+            lastMouseState = currentMouseState;
 
             base.Update(gameTime);
         }

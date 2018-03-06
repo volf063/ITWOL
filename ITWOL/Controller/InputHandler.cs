@@ -124,5 +124,12 @@ namespace ITWOL.Controller
                 }
             }
         }
+
+        public void MouseHandle (ITWOLGame game)
+        {
+            /*MouseState mouseState = Mouse.GetState();
+            game.GameCursor.cursorRectangle.X = mouseState.X;
+            game.GameCursor.cursorRectangle.Y = mouseState.Y;*/
+        }
     }
 }
